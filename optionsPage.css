@@ -1,0 +1,42 @@
+.btn {
+  font-size: 1.2rem;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  transition: 0.6s;
+  top: 7rem;
+  text-decoration: none;
+  font-family: "Pixelify Sans";
+  background: transparent;
+  opacity: 1;
+  float: right;
+  margin: 30px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 100px;
+  text-align: center;
+}
+
+input[type="radio"] {
+  display: none; /* Hide the actual radio button */
+}
+
+input[type="radio"]:checked + .btn {
+  background-color: rgb(100, 100, 100); /* Style for selected button */
+  border-color: transparent; /* Match the border color */
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  border: 2px solid black;
+}
+.btn:active {
+  border: 2px solid black;
+}
