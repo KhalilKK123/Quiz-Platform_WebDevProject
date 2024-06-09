@@ -41,42 +41,30 @@ body {
   margin: 0px 5px 0px 0px;
 }
 
-#box1 {
+.box {
   background-color: transparent;
   width: 300px;
   height: 200px;
   perspective: 1000px;
   position: absolute;
+}
+
+#box1 {
   top: 50%;
   right: 52%;
 }
 
 #box2 {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-  position: absolute;
   top: 20%;
   right: 52%;
 }
 
 #box3 {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-  position: absolute;
   top: 20%;
   right: 32%;
 }
 
 #box4 {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-  position: absolute;
   top: 50%;
   right: 32%;
 }
@@ -106,7 +94,7 @@ h2 {
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-box:hover .flip-box-inner {
+.box:hover .flip-box-inner {
   transform: rotateY(180deg);
   scale: 1.4;
   box-shadow: 0px 0px 100px #bb86fc;
