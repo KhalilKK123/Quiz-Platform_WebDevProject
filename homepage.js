@@ -36,3 +36,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
         splash.classList.add('slide-right'); // Apply the slide-right class
     }, 2000);
 });
+
+
+

@@ -245,6 +245,10 @@ a {
   transform: translateX(100%);
 }
 
+.splash.slide-center {
+  transform: translateX(0);
+}
+
 .splash-text2 {
   font-family: "Pixelify Sans";
   text-transform: uppercase;
