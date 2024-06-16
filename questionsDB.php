@@ -4,9 +4,10 @@ include("db.php");
 
 session_start();
 
-$quiz = isset($_SESSION["quiz"]) ? $_SESSION["quiz"] : "js";
+$quiz = isset($_SESSION["quiz"]) ? $_SESSION["quiz"] : "css";
 
-$diff = isset($_GET["diff"]) ? $_GET["diff"] : "Beginner";
+$diff = isset($_SESSION["diff"]) ? $_SESSION["diff"] : "Beginner";
+
 
 switch ($diff) {
     case "Beginner":
