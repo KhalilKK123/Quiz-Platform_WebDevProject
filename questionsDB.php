@@ -2,7 +2,9 @@
 
 include("db.php");
 
-// $quiz = isset($_GET["quiz"]) ? $_GET["quiz"] : "html";
+session_start();
+
+$quiz = isset($_SESSION["quiz"]) ? $_SESSION["quiz"] : "js";
 
 $diff = isset($_GET["diff"]) ? $_GET["diff"] : "Beginner";
 
@@ -18,7 +20,7 @@ switch ($diff) {
         break;
 }
 
-$sql = "SELECT * FROM css WHERE id = '$id' and Diff = '$diff';";
+$sql = "SELECT * FROM $quiz WHERE id = '$id' and Diff = '$diff';";
 $result = mysqli_query($con, $sql);
 
 if ($result) {
