@@ -8,7 +8,6 @@ $quiz = isset($_SESSION["quiz"]) ? $_SESSION["quiz"] : "css";
 
 $diff = isset($_SESSION["diff"]) ? $_SESSION["diff"] : "Beginner";
 
-
 switch ($diff) {
     case "Beginner":
         $id = isset($_GET['id']) ? intval($_GET['id']) : 1;
