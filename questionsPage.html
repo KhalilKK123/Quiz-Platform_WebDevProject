@@ -106,32 +106,41 @@
       }
     </style>
     <script>
-      let id = 1;
-
-      function fetchData(id) {
-        fetch("questionsDB.php?id=" + id)
-          .then((response) => response.text())
-          .then((data) => {
-            if (data.includes("No more entries")) {
-              window.location.href = "homePage.html";
-            } else {
-              let row = data.split("|"); // Split the returned data using '|' as the delimiter
-              document.getElementById("question").textContent = row[0];
-              document.getElementById("box1").textContent = row[1];
-              document.getElementById("box2").textContent = row[2];
-              document.getElementById("box3").textContent = row[3];
-              document.getElementById("box4").textContent = row[4];
-            }
-          });
-      }
+      let id = 0;
 
       document.addEventListener("DOMContentLoaded", () => {
-        fetchData(id);
-
-        document.getElementById("loadButton").addEventListener("click", () => {
+        function loadNextQuestion() {
           id++;
-          fetchData(id);
-        });
+          fetch("questionsDB.php?id=" + id)
+            .then((response) => response.text())
+            .then((data) => {
+              if (data.includes("No more entries")) {
+                window.location.href = "homePage.html";
+              } else {
+                let row = data.split("|");
+                document.getElementById("box1").textContent = row[1];
+                document.getElementById("box2").textContent = row[2];
+                document.getElementById("box3").textContent = row[3];
+                document.getElementById("box4").textContent = row[4];
+              }
+            })
+            .catch((error) => console.error("Error fetching data:", error));
+        }
+
+        document
+          .getElementById("box1")
+          .addEventListener("click", loadNextQuestion);
+        document
+          .getElementById("box2")
+          .addEventListener("click", loadNextQuestion);
+        document
+          .getElementById("box3")
+          .addEventListener("click", loadNextQuestion);
+        document
+          .getElementById("box4")
+          .addEventListener("click", loadNextQuestion);
+
+        loadNextQuestion();
       });
     </script>
   </head>
@@ -173,6 +182,5 @@
         <div class="box" id="box10">10</div>
       </div>
     </div>
-    <button type="submit" id="loadButton">Load Next Entry</button>
   </body>
 </html>
