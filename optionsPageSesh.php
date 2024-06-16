@@ -4,5 +4,5 @@ session_start();
 
 $_SESSION["diff"] = $_POST["diff"];
 
-header("Location: questionsPage.php");
+header("Location: questionsPage.html");
 exit();
