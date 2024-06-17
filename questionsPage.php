@@ -65,6 +65,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+
     }
 
     .answer-box {
@@ -74,10 +76,11 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition: 0.3s;
         font-size: 18px;
         border-radius: 1.3em;
         box-shadow: 0px 2px 4px 0px #bb86fc;
+        background-color: rgba(29, 29, 29, 0);
     }
 
     .answer-box:hover {
@@ -107,19 +110,19 @@
     }
     </style>
     <?php
-  session_start();
+    session_start();
 
-  if (!isset($_SESSION["quiz"])) {
-    header("location:homePage.html");
-    exit();
-  }
-  if (!isset($_SESSION["diff"])) {
-    header("location:optionsPage.html");
-    exit();
-  }
+    if (!isset($_SESSION["quiz"])) {
+        header("location:homePage.html");
+        exit();
+    }
+    if (!isset($_SESSION["diff"])) {
+        header("location:optionsPage.html");
+        exit();
+    }
 
 
-  ?>
+    ?>
     <script>
     let id = 0;
     let idAnswerBox = 1;
@@ -154,9 +157,14 @@
                     let sortedArray = tempArray.sort((a, b) => a[1] - b[1]);
 
                     document.getElementById("box1").textContent = sortedArray[0][0];
+                    document.getElementById("box1").style.color = "white";
                     document.getElementById("box2").textContent = sortedArray[1][0];
+                    document.getElementById("box2").style.color = "white";
                     document.getElementById("box3").textContent = sortedArray[2][0];
+                    document.getElementById("box3").style.color = "white";
                     document.getElementById("box4").textContent = sortedArray[3][0];
+                    document.getElementById("box4").style.color = "white";
+
 
                     switch (correctAnswer) {
                         case sortedArray[0][0]:
@@ -213,7 +221,7 @@
                 disableButtons(false);
 
                 loadNextQuestion();
-            }, 500); //milliseconds
+            }, 700); //milliseconds
 
             idAnswerBox++;
         }
@@ -247,10 +255,10 @@
     <h1 id="question"></h1>
     <div id="test">
         <div class="answers-container">
-            <div class="answer-box" id="box1"></div>
-            <div class="answer-box" id="box2"></div>
-            <div class="answer-box" id="box3"></div>
-            <div class="answer-box" id="box4"></div>
+            <button class="answer-box" id="box1"></button>
+            <button class="answer-box" id="box2"></button>
+            <button class="answer-box" id="box3"></button>
+            <button class="answer-box" id="box4"></button>
         </div>
     </div>
     <div>
