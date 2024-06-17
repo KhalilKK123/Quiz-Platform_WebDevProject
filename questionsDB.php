@@ -4,6 +4,15 @@ include("db.php");
 
 session_start();
 
+if (!isset($_SESSION["quiz"])) {
+    header("location: homePage.html");
+    exit();
+}
+if (!isset($_SESSION["diff"])) {
+    header("location: optionsPage.html");
+    exit();
+}
+
 $quiz = isset($_SESSION["quiz"]) ? $_SESSION["quiz"] : "css";
 
 $diff = isset($_SESSION["diff"]) ? $_SESSION["diff"] : "Beginner";

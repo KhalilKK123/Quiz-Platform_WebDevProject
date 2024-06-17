@@ -105,8 +105,24 @@
         border-radius: 0.5em;
       }
     </style>
+    <?php
+    session_start();
+  
+    if (!isset($_SESSION["quiz"])) {
+      header("location:homePage.html");
+      exit();
+    }
+    if (!isset($_SESSION["diff"])) {
+      header("location:optionsPage.html");
+      exit();
+    }
+  
+  
+    ?>
     <script>
       let id = 0;
+      let idAnswerBox = 1;
+      let correctAnswerBox;
 
       document.addEventListener("DOMContentLoaded", () => {
         function loadNextQuestion() {
@@ -114,61 +130,94 @@
           fetch("questionsDB.php?id=" + id)
             .then((response) => response.text())
             .then((data) => {
-              if (data.includes("No more entries")) {
+              if (data.includes("No more entries.")) {
                 window.location.href = "homePage.html";
-              } else {
-                let row = data.split("|");
-                document.getElementById("question").textContent = row[0];
-                document.getElementById("box1").textContent = row[1];
-                document.getElementById("box2").textContent = row[2];
-                document.getElementById("box3").textContent = row[3];
-                document.getElementById("box4").textContent = row[4];
+                return;
               }
+              let row = data.split("|");
+              let correctAnswer = row[4];
+
+              document.getElementById("question").textContent = row[0];
+
+              let possibleAnswers = row.slice(1, 5);
+
+              let tempArray = [];
+
+              possibleAnswers.forEach((possibleAnswer) => {
+                tempArray.push([possibleAnswer, Math.random()]);
+              });
+
+              let sortedArray = tempArray.sort((a, b) => a[1] - b[1]);
+
+              document.getElementById("box1").textContent = sortedArray[0][0];
+              document.getElementById("box2").textContent = sortedArray[1][0];
+              document.getElementById("box3").textContent = sortedArray[2][0];
+              document.getElementById("box4").textContent = sortedArray[3][0];
+
+              switch (correctAnswer) {
+                case sortedArray[0][0]:
+                  correctAnswerBox = document.getElementById("box1");
+                  break;
+                case sortedArray[1][0]:
+                  correctAnswerBox = document.getElementById("box2");
+                  break;
+                case sortedArray[2][0]:
+                  correctAnswerBox = document.getElementById("box3");
+                  break;
+                case sortedArray[3][0]:
+                  correctAnswerBox = document.getElementById("box4");
+                  break;
+              }
+
+              document.getElementById("box1").onclick = () =>
+                greenOrRed(sortedArray[0][0], "box1", correctAnswer);
+              document.getElementById("box2").onclick = () =>
+                greenOrRed(sortedArray[1][0], "box2", correctAnswer);
+              document.getElementById("box3").onclick = () =>
+                greenOrRed(sortedArray[2][0], "box3", correctAnswer);
+              document.getElementById("box4").onclick = () =>
+                greenOrRed(sortedArray[3][0], "box4", correctAnswer);
             })
             .catch((error) => console.error("Error fetching data:", error));
         }
 
-        function greenOrRed(element) {
-          answer = element.textContent;
-          fetch("checkAnswer.php?id=" + id)
-            .then((response) => response.text())
-            .then((data) => {
-              if (answer.textContent == data) {
-                boxName = "answer" + (id + 1);
-                document.getElementById(boxName).style.backgroundColor =
-                  "green";
-              } else {
-                document.getElementById(boxName).style.backgroundColor = "red";
-              }
-            })
-            .catch((error) => console.error("Error fetching data:", error));
+        function greenOrRed(selectedAnswer, boxId, correctAnswer) {
+          let answerBox = document.getElementById(boxId);
+          let originalColor = answerBox.style.backgroundColor;
+
+          disableButtons(true);
+
+          if (selectedAnswer === correctAnswer) {
+            document.getElementById(
+              "answer" + idAnswerBox
+            ).style.backgroundColor = "green";
+            answerBox.style.backgroundColor = "green";
+          } else {
+            document.getElementById(
+              "answer" + idAnswerBox
+            ).style.backgroundColor = "red";
+            answerBox.style.backgroundColor = "red";
+            correctAnswerBox.style.backgroundColor = "green";
+          }
+
+          setTimeout(() => {
+            answerBox.style.backgroundColor = originalColor;
+            correctAnswerBox.style.backgroundColor = originalColor;
+
+            disableButtons(false);
+
+            loadNextQuestion();
+          }, 500); //milliseconds
+
+          idAnswerBox++;
         }
 
-        document.getElementById("box1").addEventListener("click", function () {
-          greenOrRed(this);
-        });
-        document.getElementById("box2").addEventListener("click", function () {
-          greenOrRed(this);
-        });
-        document.getElementById("box3").addEventListener("click", function () {
-          greenOrRed(this);
-        });
-        document.getElementById("box4").addEventListener("click", function () {
-          greenOrRed(this);
-        });
-
-        document
-          .getElementById("box1")
-          .addEventListener("click", loadNextQuestion);
-        document
-          .getElementById("box2")
-          .addEventListener("click", loadNextQuestion);
-        document
-          .getElementById("box3")
-          .addEventListener("click", loadNextQuestion);
-        document
-          .getElementById("box4")
-          .addEventListener("click", loadNextQuestion);
+        function disableButtons(disable) {
+          document.getElementById("box1").disabled = disable;
+          document.getElementById("box2").disabled = disable;
+          document.getElementById("box3").disabled = disable;
+          document.getElementById("box4").disabled = disable;
+        }
 
         loadNextQuestion();
       });
