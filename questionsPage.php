@@ -121,7 +121,6 @@
         exit();
     }
 
-
     ?>
     <script>
     let id = 0;

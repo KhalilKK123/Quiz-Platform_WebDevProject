@@ -7,10 +7,22 @@ $decodedArray = urldecode(base64_decode($encodedArray));
 $explodedArray = explode("^", $decodedArray);
 
 $finalArray = array();
+$score = 0;
+
 
 foreach ($explodedArray as $row) {
     $finalArray[] = explode("|", $row);
 }
+
+
+for ($i = 0; $i < count($finalArray); $i++) {
+    if ($finalArray[$i][2] == $finalArray[$i][3]) {
+        $score++;
+    }
+}
+
+
+
 
 
 echo "<html>
@@ -32,8 +44,9 @@ foreach ($finalArray as $row) {
 }
 
 
-echo "</table>
-<a href='homePage.html'><button>Go Home</button></a>
+echo "</table><br>" . $score .
+
+    "/10 <br><a href='homePage.html'><button>Go Home</button></a>
 
 </body>
 
