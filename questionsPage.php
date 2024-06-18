@@ -136,7 +136,7 @@
                 .then((response) => response.text())
                 .then((data) => {
                     if (data.includes("No more entries.")) {
-                        let encodedReviewSheet = encodeURIComponent(reviewSheet.join("^"));
+                        let encodedReviewSheet = btoa(encodeURI(reviewSheet.join("^")));
 
                         window.location.href = "reviewPage.php?reviewSheet=" + encodedReviewSheet;
                         return;

@@ -2,7 +2,7 @@
 
 $encodedArray = $_GET["reviewSheet"];
 
-$decodedArray = urldecode($encodedArray);
+$decodedArray = urldecode(base64_decode($encodedArray));
 
 $explodedArray = explode("^", $decodedArray);
 
