@@ -3,17 +3,13 @@
   <head>
     <title>KMH</title>
     <link rel="stylesheet" href="homePage.css" />
-    <!-- <link rel="stylesheet" href="optionsPage.css" /> -->
+    <link rel="stylesheet" href="optionsPage.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Pixelify Sans"
+      href="https://fonts.googleapis.com/css?family=Pixelify+Sans"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div class="splash">
-      <h1 class="splash-text">K &nbsp &nbsp &nbsp M &nbsp &nbsp &nbsp H</h1>
-      <h4 class="splash-text2">Loading up quizzes</h4>
-    </div>
     <div class="navbar">
       <ul>
         <li id="khalil"><h1>&nbsp K &nbsp &nbsp &nbsp</h1></li>
@@ -22,8 +18,12 @@
       </ul>
     </div>
 
-    <form action="optionsPageSesh.php" method="POST">
-      <div>
+    <div class="splash">
+      <h1 class="splash-text">K &nbsp &nbsp &nbsp M &nbsp &nbsp &nbsp H</h1>
+      <h4 class="splash-text2">Loading up quizzes</h4>
+    </div>
+    <form action="optionsPageSesh.php" method="POST" class="form-container">
+      <div class="radio-container">
         <label>
           <input
             type="radio"
@@ -34,6 +34,7 @@
           />
           <span class="btn" id="btn3">Beginner</span>
         </label>
+
         <label>
           <input type="radio" name="diff" class="radio-input" value="Amateur" />
           <span class="btn" id="btn2">Amateur</span>

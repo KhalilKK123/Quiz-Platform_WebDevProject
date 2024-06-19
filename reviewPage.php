@@ -26,13 +26,87 @@ for ($i = 0; $i < count($finalArray); $i++) {
 
 
 echo "<html>
+    <head>
+        <title>KMH</title>
+        <link rel='stylesheet' href='homePage.css' />
+        <link rel='stylesheet' href='optionsPage.css' />
+        <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
+        <style>
+            body{margin: 0;
+  height: 100vh;
+  font-weight: 100;
+  background: radial-gradient(#1b1b1b, #000000);
+  -webkit-overflow-y: hidden;
+  -moz-overflow-y: hidden;
+  -o-overflow-y: hidden;
+  overflow-y: hidden;
+  -webkit-animation: fadeIn 1 1s ease-out;
+  -moz-animation: fadeIn 1 1s ease-out;
+  -o-animation: fadeIn 1 1s ease-out;
+  animation: fadeIn 1 1s ease-out;}
+
+            .btn2{font-family: 'Pixelify Sans';}
+
+            .btn3 {
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  transition: 0.6s;
+  margin: 50px 900px 0px 900px;
+  text-decoration: none;
+  font-family: 'Pixelify Sans';
+  background-color: black;
+  text-align: center;
+  opacity: 1;
+  display: block;
+}
+
+  table,th,td{
+  color:white;
+  margin:0 auto;
+  font-size:20px;
+  border-collapse:seperate;
+  border-spacing:70px 10px;
+  }
+
+    th,td{border:none;
+            }
+  
+  tr{border:none;}
+  
+  .thead{
+        background-color:black;
+        }
+
+
+        </style>
+    </head>
     <body>
-        <table>
+    <div class='navbar'>
+      <ul>
+        <li id='khalil'>
+          <h1>&nbsp K &nbsp &nbsp &nbsp</h1>
+        </li>
+        <li id='mohammad'>
+          <h1>M&nbsp &nbsp &nbsp</h1>
+        </li>
+        <li id='hamza'>
+          <h1>H</h1>
+        </li>
+      </ul>
+    </div>
+    <br><br>
+        <table class='table'>
             <tr>
-                <th>id</th>
-                <th>Question</th>
-                <th>Correct Answer</th>
-                <th>Selected Answer</th>
+                <th class='thead'>id</th>
+                <th class='thead'>Question</th>
+                <th class='thead'>Correct Answer</th>
+                <th class='thead'>Selected Answer</th>
             </tr>";
 
 foreach ($finalArray as $row) {
@@ -44,10 +118,11 @@ foreach ($finalArray as $row) {
 }
 
 
-echo "</table><br>" . $score .
+echo "</table><br><span class='btn3'>" . $score .
 
-    "/10 <br><a href='homePage.html'><button>Go Home</button></a>
+    "/10 </span><br><a href='homePage.html'><button class='btn2'>Go Home</button></a>
 
+    
 </body>
 
 </html>";

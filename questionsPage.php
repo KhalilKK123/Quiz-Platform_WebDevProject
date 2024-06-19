@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
     <title>Quiz Website</title>
     <style>
     body {
         background-color: rgb(29, 29, 29);
         color: white;
+        margin: 0;
+  height: 100vh;
+  font-weight: 100;
+  background: radial-gradient(#1b1b1b, #000000);
+  -webkit-overflow-y: hidden;
+  -moz-overflow-y: hidden;
+  -o-overflow-y: hidden;
+  overflow-y: hidden;
+  -webkit-animation: fadeIn 1 1s ease-out;
+  -moz-animation: fadeIn 1 1s ease-out;
+  -o-animation: fadeIn 1 1s ease-out;
+  animation: fadeIn 1 1s ease-out;
+  font-family: "Pixelify Sans";
     }
 
     .navbar {
-        color: white;
-        background-color: rgb(20, 20, 20);
-        padding: 10px 0px;
-        transition: 0.6s;
-        margin-left: 20px;
-        margin-right: 20px;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0px 2px 4px 0px #bb86fc;
-    }
+  color: white;
+  background-color: rgb(20, 20, 20);
+  padding: 10px 0px;
+  transition: 0.6s;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top:0px;
+  box-shadow: 0px 2px 4px 0px #bb86fc;
+}
 
-    .navbar ul {
-        text-align: center;
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        font-family: "Pixelify Sans";
-        display: inline-flex;
-    }
+.navbar:hover {
+  transform: translate(0px, 10px);
+}
 
-    .navbar li {
-        margin: 0px 5px 0px 0px;
-    }
+.navbar ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Pixelify Sans";
+  /* letter-spacing: 100px; */
+  border-radius: 20px;
+  display: inline-flex;
+}
 
     #test {
         display: flex;
@@ -42,7 +59,7 @@
         justify-content: center;
         height: 20vh;
         margin: 0;
-        font-family: Arial, sans-serif;
+        font-family: "Pixelify Sans";
     }
 
     #question {
@@ -66,12 +83,11 @@
         align-items: center;
         justify-content: center;
 
-
     }
 
     .answer-box {
         height: 150px;
-        border: 3px solid black;
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -81,16 +97,18 @@
         border-radius: 1.3em;
         box-shadow: 0px 2px 4px 0px #bb86fc;
         background-color: rgba(29, 29, 29, 0);
+        font-family: "Pixelify Sans";
     }
 
     .answer-box:hover {
-        background-color: grey;
+        background-color:black;
+        box-shadow: 0px 0px 100px #bb86fc;
     }
 
     .barContainer {
         position: absolute;
         display: flex;
-        height: 300px;
+        height: 200px;
         bottom: 30px;
         width: 99%;
         align-items: flex-end;
@@ -239,17 +257,17 @@
 
 <body>
     <div class="navbar">
-        <ul>
-            <li id="khalil">
-                <h1>&nbsp K &nbsp &nbsp &nbsp</h1>
-            </li>
-            <li id="mohammad">
-                <h1>M&nbsp &nbsp &nbsp</h1>
-            </li>
-            <li id="hamza">
-                <h1>H</h1>
-            </li>
-        </ul>
+      <ul>
+        <li id="khalil">
+          <h1>&nbsp K &nbsp &nbsp &nbsp</h1>
+        </li>
+        <li id="mohammad">
+          <h1>M&nbsp &nbsp &nbsp</h1>
+        </li>
+        <li id="hamza">
+          <h1>H</h1>
+        </li>
+      </ul>
     </div>
     <h1 id="question"></h1>
     <div id="test">
