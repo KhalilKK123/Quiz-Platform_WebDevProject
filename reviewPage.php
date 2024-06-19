@@ -11,14 +11,14 @@ $score = 0;
 
 
 foreach ($explodedArray as $row) {
-    $finalArray[] = explode("|", $row);
+  $finalArray[] = explode("|", $row);
 }
 
 
 for ($i = 0; $i < count($finalArray); $i++) {
-    if ($finalArray[$i][2] == $finalArray[$i][3]) {
-        $score++;
-    }
+  if ($finalArray[$i][2] == $finalArray[$i][3]) {
+    $score++;
+  }
 }
 
 
@@ -103,24 +103,24 @@ echo "<html>
     <br><br>
         <table class='table'>
             <tr>
-                <th class='thead'>id</th>
+                <th class='thead'>#</th>
                 <th class='thead'>Question</th>
                 <th class='thead'>Correct Answer</th>
                 <th class='thead'>Selected Answer</th>
             </tr>";
 
 foreach ($finalArray as $row) {
-    echo "<tr><td>" . htmlspecialchars($row[0]) .
-        "</td><td>" . htmlspecialchars($row[1]) .
-        "</td><td>" . htmlspecialchars($row[2]) .
-        "</td><td>" . htmlspecialchars($row[3]) .
-        "</td></tr>";
+  echo "<tr><td>" . htmlspecialchars($row[0]) .
+    "</td><td>" . htmlspecialchars($row[1]) .
+    "</td><td>" . htmlspecialchars($row[2]) .
+    "</td><td>" . htmlspecialchars($row[3]) .
+    "</td></tr>";
 }
 
 
 echo "</table><br><span class='btn3'>" . $score .
 
-    "/10 </span><br><a href='homePage.html'><button class='btn2'>Go Home</button></a>
+  "/10 </span><br><a href='homePage.html'><button class='btn2'>Go Home</button></a>
 
     
 </body>
