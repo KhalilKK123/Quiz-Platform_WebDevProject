@@ -118,9 +118,9 @@ foreach ($finalArray as $row) {
 }
 
 
-echo "</table><br><span class='btn3'>" . $score .
+echo "</table><span class='btn3'>" . $score .
 
-  "/10 </span><br><a href='homePage.html'><button class='btn2'>Go Home</button></a>
+  "/10 </span><br><a href='homePage.html'><br><br><br><br><button class='btn2'>Go Home</button></a>
 
     
 </body>
