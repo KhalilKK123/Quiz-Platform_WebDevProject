@@ -31,6 +31,9 @@ if (!isset($_SESSION["validateUser"])) {
 
 <body>
   <div class="navbar">
+  <form method="GET"> 
+        <button id="submittt" class="submitt" name="logout">Sign Out</button>
+    </form>
     <ul>
       <li id="khalil">
         <h1>&nbsp K &nbsp &nbsp &nbsp</h1>
@@ -69,6 +72,21 @@ if (!isset($_SESSION["validateUser"])) {
     <button class="btn2" type="submit">Ready?</button>
   </form>
   <script src="homePage.js"></script>
+
+  </form>
+    <?php
+  if (isset($_GET['logout'])) {
+      // Unset all of the session variables
+      $_SESSION = array();
+
+      // Destroy the session
+      session_destroy();
+
+      // Redirect to the login page
+      header("Location: loginPage.php");
+      exit();
+  }
+  ?>
 </body>
 
 </html>

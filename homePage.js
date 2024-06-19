@@ -29,6 +29,8 @@ const splash = document.querySelector(".splash");
 
 document.addEventListener("DOMContentLoaded", (e) => {
   setTimeout(() => {
-    splash.classList.add("slide-right"); // Apply the slide-right class
+    splash.classList.add("slide-right");
   }, 2000);
 });
+
+

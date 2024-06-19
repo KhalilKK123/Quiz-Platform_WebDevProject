@@ -15,20 +15,10 @@ if(!isset($_SESSION["validateUser"])){
     <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
     <link rel="stylesheet" href="homePage.css" />
     <title>KMH</title>
-    <style>
-    #a {
-        position: absolute;
-        right: 60px;
-        top: 35px;
-        margin: 10px;
-        /* Adjust this value as needed */
-        font-size: 20px;
-        /* Adjust font size as needed */
-    }
-    </style>
 </head>
 
 <body>
+
     <form action="homePageSesh.php" method="POST">
         <div class="splash">
             <h1 class="splash-text">K &nbsp &nbsp &nbsp M &nbsp &nbsp &nbsp H </h1>
@@ -47,7 +37,7 @@ if(!isset($_SESSION["validateUser"])){
                     <h1>H</h1>
                 </li>
             </ul>
-            <span id="a"> <?php echo "welcome ".$_SESSION["username"]."!";?> </span>
+            <span id="a"> <?php echo "Welcome ".$_SESSION["username"]."!";?> </span>
         </div>
 
         <div class="box" id="box1">
@@ -98,7 +88,7 @@ if(!isset($_SESSION["validateUser"])){
         <div class="box" id="box4">
             <div class="flip-box-inner">
                 <div class="flip-box-front">
-                    <h2>PHP < / ?</h2>
+                    <h2>PHP</h2>
                 </div>
                 <div class="flip-box-back">
                     <h2 class="back">...php.
@@ -123,10 +113,11 @@ if(!isset($_SESSION["validateUser"])){
         <script src="homePage.js"></script>
     </form>
 
-    <form method="GET">
-        <button type="submit" name="logout">Sign Out</button>
+    
+    <form method="GET"> 
+        <button id="submittt" class="submitt" name="logout">Sign Out</button>
     </form>
-
+    
     <?php
   if (isset($_GET['logout'])) {
       // Unset all of the session variables

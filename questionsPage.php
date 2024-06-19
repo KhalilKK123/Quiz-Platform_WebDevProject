@@ -56,7 +56,7 @@ if (!isset($_SESSION["validateUser"])) {
         }
 
         .navbar:hover {
-            transform: translate(0px, 10px);
+            box-shadow: 0px 40px 70px -20px #bb86fc;
         }
 
         .navbar ul {

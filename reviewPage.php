@@ -83,8 +83,9 @@ echo "<html>
   color:white;
   margin:0 auto;
   font-size:20px;
+  font-family: 'Pixelify Sans';
   border-collapse:seperate;
-  border-spacing:70px 10px;
+  border-spacing:70px 5px;
   }
 
     th,td{border:none;

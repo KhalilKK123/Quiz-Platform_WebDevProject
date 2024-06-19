@@ -1,6 +1,7 @@
 body {
   margin: 0px;
   background-color: rgb(29, 29, 29);
+  color: white;
 }
 
 .navbar {
@@ -16,7 +17,7 @@ body {
 }
 
 .navbar:hover {
-  transform: translate(0px, 10px);
+  box-shadow: 0px 40px 70px -20px #bb86fc;
 }
 
 .navbar ul {
@@ -27,10 +28,42 @@ body {
   font-family: "Pixelify Sans";
   border-radius: 20px;
   display: inline-flex;
+  margin-left: auto;
 }
 
 .navbar li {
   margin: 0px 5px 0px 0px;
+}
+
+.submitt {
+  font-family: "Pixelify Sans";
+  position: fixed;
+  right: 90px;
+  top: 35px;
+  margin-top: -5px;
+  margin-left: 60px;
+  margin-bottom: 120px;
+  font-size: 20px;
+  border: none;
+  color: white;
+  width: 100px;
+}
+
+#submittt:hover {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+#a {
+  position: absolute;
+  right: 60px;
+  top: 35px;
+  margin: 10px;
+  font-size: 20px;
+  font-family: "Pixelify Sans";
+  color: white;
+  cursor: default;
 }
 
 .box {
