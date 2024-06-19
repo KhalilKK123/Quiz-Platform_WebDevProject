@@ -1,4 +1,12 @@
 <html lang="en">
+<?php
+include("secureSesh.php");
+if (!isset($_SESSION["validateUser"])) {
+    header("location: loginPage.php");
+    exit();
+}
+
+?>
 
 <head>
     <meta charset="UTF-8" />
@@ -22,6 +30,16 @@
             -o-animation: fadeIn 1 1s ease-out;
             animation: fadeIn 1 1s ease-out;
             font-family: "Pixelify Sans";
+        }
+
+        #a {
+            position: absolute;
+            right: 60px;
+            top: 35px;
+            margin: 10px;
+            /* Adjust this value as needed */
+            font-size: 20px;
+            /* Adjust font size as needed */
         }
 
         .navbar {
@@ -128,14 +146,13 @@
         }
     </style>
     <?php
-    session_start();
 
     if (!isset($_SESSION["quiz"])) {
-        header("location:homePage.html");
+        header("location:homePage.php");
         exit();
     }
     if (!isset($_SESSION["diff"])) {
-        header("location:optionsPage.html");
+        header("location:optionsPage.php");
         exit();
     }
 
@@ -268,6 +285,7 @@
                 <h1>H</h1>
             </li>
         </ul>
+        <span id="a"> <?php echo $_SESSION["username"]; ?> </span>
     </div>
     <h1 id="question"></h1>
     <div id="test">

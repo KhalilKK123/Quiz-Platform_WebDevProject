@@ -1,4 +1,17 @@
 <?php
+include("secureSesh.php");
+if (!isset($_SESSION["validateUser"])) {
+  header("location: loginPage.php");
+  exit();
+}
+if (!isset($_SESSION["quiz"])) {
+  header("location:homePage.php");
+  exit();
+}
+if (!isset($_SESSION["diff"])) {
+  header("location:optionsPage.php");
+  exit();
+}
 
 $encodedArray = $_GET["reviewSheet"];
 
@@ -120,9 +133,12 @@ foreach ($finalArray as $row) {
 
 echo "</table><span class='btn3'>" . $score .
 
-  "/10 </span><br><a href='homePage.html'><br><br><br><br><button class='btn2'>Go Home</button></a>
+  "/10 </span><br><a href='homePage.php'><br><br><br><br><button class='btn2'>Go Home</button></a>
 
     
 </body>
 
 </html>";
+
+unset($_SESSION["quiz"]);
+unset($_SESSION["diff"]);

@@ -1,8 +1,9 @@
 <?php
 
-session_start();
+include("secureSesh.php");
+
 
 $_SESSION["quiz"] = $_POST["quiz"];
 
-header("Location: optionsPage.html");
+header("Location: optionsPage.php");
 exit();

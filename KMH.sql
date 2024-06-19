@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2024 at 08:17 AM
+-- Generation Time: Jun 19, 2024 at 10:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `KMH`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`email`, `username`, `password`) VALUES
+('20221176@aau.ac.ae', 'tensho123', 'tensho123'),
+('tensho603@gmail.com', 'tesh123', '$2y$12$rYKrr9j53iN19j7OACp1Iex/bN/hAj371n46yCT0oN/U1hFSBtRCu'),
+('hi@gmail.com', 'tenshno123', '$2y$12$yWI4bcK5JYIuPX0DDIZ3JuxxRIQomqkj/VillCAnoGfEyXK1KpNLe'),
+('hamza@gmail.com', 'tensho123', '$2y$12$T1b3R9XMaFlHWcG022fgkefDFwY29KUATFIkrBiXarw0ow8BT8fSK'),
+('hamzawe@gmail.com', 'tensho', '$2y$12$9k64IXyMfdDzxxCvw7plIOfBSGn9uNkJe650DLW0S0RL.W8y0QYzS'),
+('hia@gmail.com', 'tensho', '$2y$12$1IHLe5lJ6r87jFzxS4av3OJLq5c10Jhg03bVQBd9FuZASKgR8FLBK'),
+('hello@gmail.com', 'tarik', '$2y$12$7UHZNRGfGIPgepJxleIIHOvrlGX/JM7Z7UnKMNl1L21QNVUTYd4u6'),
+('hamza123@gmail.com', 'mazhar', '$2y$12$aW83b3ePfUEc2M6Pk7gA3ORZcL7fG7ScfXhuX7wnS/DYPxN70fUUC'),
+('khalil@gmail.com', 'khalilkk123', '$2y$12$4WDRT.gnUh5F8jyEhQwnAeWrNXl7vuNU4M7p5iqAkwL7fb0gGxHyO'),
+('khalil123@gmail.com', 'khalilkk123', '$2y$12$0UeRLg18DxUwYI98FoXu9.j9HZtvyj9zwwly7bHsc78hMupRzubUO'),
+('khalil12345@gmail.com', 'khalil12345', '$2y$12$4FuASt//2YnPFJ7Wi6LT6.u54c6uq6c/sPjhfyCkUZjjn./c7OZge'),
+('khalil123456@gmail.com', 'khalil123456', '$2y$12$vsFr6l7k6ceOGaZhSiEvrOkqfnS7dcyZEma3XmEwuGnK4n7U.xnxO');
 
 -- --------------------------------------------------------
 

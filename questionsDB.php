@@ -2,14 +2,14 @@
 
 include("db.php");
 
-session_start();
+include("secureSesh.php");
 
 if (!isset($_SESSION["quiz"])) {
-    header("location: homePage.html");
+    header("location: homePage.php");
     exit();
 }
 if (!isset($_SESSION["diff"])) {
-    header("location: optionsPage.html");
+    header("location: optionsPage.php");
     exit();
 }
 
@@ -29,19 +29,22 @@ switch ($diff) {
         break;
 }
 
-$sql = "SELECT * FROM $quiz WHERE id = '$id' and Diff = '$diff';";
-$result = mysqli_query($con, $sql);
+$sql = "SELECT * FROM $quiz WHERE id = ? and Diff = ?;";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("is", $id, $diff);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if ($result) {
-    if ($row = mysqli_fetch_assoc($result)) {
-        echo $row["Question"]  . '|' .
-            $row["A1"]  . '|' .
-            $row["A2"]  . '|' .
-            $row["A3"]  . '|' .
-            $row["A4"];
-    } else {
-        echo "No more entries.";
-    }
+if ($row = $result->fetch_assoc()) {
+    echo $row["Question"] . '|' .
+        $row["A1"] . '|' .
+        $row["A2"] . '|' .
+        $row["A3"] . '|' .
+        $row["A4"];
 } else {
-    echo "Query error: " . mysqli_error($con);
+    echo "No more entries.";
 }
+
+$con = null;
+$stmt = null;
+die();
